@@ -1,0 +1,46 @@
+{
+  "name": "m3-simplekitchen-app",
+  "version": "1.0.0",
+  "description": "Food blog",
+  "keywords": [
+    "food-blog",
+    "express",
+    "mongodb",
+    "sass"
+  ],
+  "homepage": "https://github.com/SRai22/m3-simplekitchen-app#readme",
+  "bugs": {
+    "url": "https://github.com/SRai22/m3-simplekitchen-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SRai22/m3-simplekitchen-app.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Shravan S Rai",
+  "main": "start.js",
+  "scripts": {
+    "scss": "sass --no-source-map public/scss/:public/css/",
+    "watch:scss": "onchange 'scss/*.scss' -- npm run scss",
+    "start": "nodemon start.js", 
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run start'"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "http-auth": "^4.2.0",
+    "mongoose": "^8.9.5",
+    "pug": "^3.0.3",
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
+    "sass": "^1.83.4",
+    "onchange": "7.1.0"
+
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
