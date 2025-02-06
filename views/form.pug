@@ -2,32 +2,33 @@ extends layout
 
 block content
     -data = data || {}
-    if errors 
-        ul.my-errors 
-            for error in errors 
-                li = error.msg
 
+    if errors
+        ul.my-errors
+        for error in errors
+            li= error.msg
     form(action="." method="POST" class="form-registration")
-        label(for = "name") Name: 
+        label(for="name") Name:
         input(
-            type = "text"
-            id = "name"
-            name = "name"
+            type="text"
+            id="name"
+            name="name"
             class="form-control"
-            value = data.name
+            value=data.name
         )
 
-        label( for = "email") Email: 
+        label(for="email") Email:
         input(
-            type = "email"
-            id = "email"
-            name = "email"
+            type="email"
+            id="email"
+            name="email"
             class="form-control"
-            value = data.email 
+            value=data.email
         )
 
+        
         input(
-            type = "submit" 
-            value = "Submit"
-            class= "btn btn-lg btn-primary btn-block"
+            type="submit"
+            value="Submit"
+            class="btn btn-lg btn-primary btn-block"
         )

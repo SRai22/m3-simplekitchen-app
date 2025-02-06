@@ -21,24 +21,24 @@
   "main": "start.js",
   "scripts": {
     "scss": "sass --no-source-map public/scss/:public/css/",
-    "watch:scss": "onchange 'scss/*.scss' -- npm run scss",
-    "start": "nodemon start.js", 
+    "watch:scss": "onchange './public/scss/*.scss' -- npm run scss",
+    "start": "nodemon start.js",
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run start'"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
     "http-auth": "^4.2.0",
-    "mongoose": "^8.9.5",
-    "pug": "^3.0.3",
-    "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
+    "mongoose": "^8.9.5",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.1",
     "popper.js": "^1.16.1",
-    "sass": "^1.83.4",
-    "onchange": "7.1.0"
-
+    "pug": "^3.0.3",
+    "sass": "^1.83.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
