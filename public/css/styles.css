@@ -118,7 +118,7 @@ footer {
   background-color: rgb(218, 170, 14);
   text-align: left;
   padding: 30px 0;
-  color: rgb(49, 49, 48);
+  color: rgb(212, 213, 216);
   padding-left: 50px;
 }
 
@@ -146,4 +146,17 @@ footer {
 }
 .listing-table tr:hover {
   background-color: rgb(212, 213, 216);
+}
+
+#intro-thank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: right;
+  color: rgb(49, 49, 48);
+  width: 100%;
 }
