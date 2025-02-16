@@ -9,6 +9,7 @@ const Registration = mongoose.model('Registration');
 const basic = auth.basic({
   file: path.join(__dirname, '../users.htpasswd'),
 });
+const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
   //res.send('It works!');
@@ -32,19 +33,29 @@ router.get('/registrants', basic.check((req, res) => {
 }));
 
 router.post('/', 
-    [
-        check('name')
-        .isLength({ min: 1 })
-        .withMessage('!Error: Please enter a name'),
-        check('email')
-        .isLength({ min: 1 })
-        .withMessage('!Error: Please enter an email'),
-    ],
-    (req, res) => {
+  [
+    check('name')
+    .isLength({ min: 1 })
+    .withMessage('!Error: Please enter a name'),
+    check('email')
+    .isLength({ min: 1 })
+    .withMessage('!Error: Please enter an email'),
+    check('username')
+    .isLength({ min: 1 })
+    .withMessage('!Error: Please enter username'),
+    check('password')
+    .isLength({ min: 1 })
+    .withMessage('!Error: Please enter password'),
+  ],
+    async (req, res) => {
         //console.log(req.body);
         const errors = validationResult(req);
         if (errors.isEmpty()) {
           const registration = new Registration(req.body);
+          // generate salt to has password 
+          const salt = await bcrypt.genSalt(10);
+          // set user password to hashed password
+          registration.password = await bcrypt.hash(registration.password, salt);
           registration.save()
             .then(() => {res.render('thankyou', {title:'Thankyou form'});})
             .catch((err) => {

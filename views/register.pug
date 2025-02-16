@@ -33,6 +33,7 @@ block content
                         for error in errors
                             li= error.msg
                 h3 Register to subscribe
+                
                 form(action="." method="POST" class="form-registration")
                     label(for="name") Name:
                     input(
@@ -42,6 +43,7 @@ block content
                         class="form-control"
                         value=data.name
                     )
+
                     label(for="email") Email:
                     input(
                         type="email"
@@ -49,6 +51,25 @@ block content
                         name="email"
                         class="form-control"
                         value=data.email
+                    )
+
+
+                    label(for="username") Username:
+                    input(
+                        type="username"
+                        id="username"
+                        name="username"
+                        class="form-control"
+                        value=data.username
+                    )
+
+                    label(for="password") Password:
+                    input(
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        value=data.password
                     )
                     button(type="submit" value="Register") Register
         footer
